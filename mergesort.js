@@ -8,10 +8,11 @@ function split(wholeArray) {
   return [firstHalf, secondHalf];
 }
 
-function merge(array1,array2){
+function merge(array1,array2,func){
   let merged=[]
+  if (!func) func = compare; // if user didn't pass a function, then default to compare
   while ((array1.length!==0)&&(array2.length!==0)){
-  if (array1[0]>array2[0]){
+  if (func(array1[0], array2[0])){
     merged.push(array2[0])
     array2.shift()
   }
@@ -19,16 +20,11 @@ function merge(array1,array2){
     merged.push(array1[0])
     array1.shift()
   }
-
-
-
   }
-
 return merged.concat(array1).concat(array2)
 }
 
-
-function mergeSort(array) {
+function mergeSort(array, func) {
  if (array.length===1){
    return array
  }
@@ -36,6 +32,15 @@ let splitarr = split(array)
 let firstarr = splitarr[0]
 let secondarr = splitarr[1]
 
-return merge(mergeSort(firstarr),mergeSort(secondarr))
+return merge(mergeSort(firstarr),mergeSort(secondarr), func)
 
+}
+
+function compare(num1,num2){
+  if (num1>num2){
+    return true
+  }
+  else{
+    return false
+  }
 }
