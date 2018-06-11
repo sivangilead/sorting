@@ -3,9 +3,11 @@ function bubbleSort(array) {
 for (let i=0;i<array.length;i++) {
   for(let j=0;j<array.length-1;j++){
     console.log(i,j)
-     if (compare(array[i],array[j+1])){
+    console.log(array[j],array[j+1])
+    console.log(compare(array[j],array[j+1]))
+     if (compare(array[j],array[j+1])){
         swap(array,j)
-         console.log(array[i],array[j+1],compare(array[i],array[j+1]))
+        console.log(array)
      }
     }
   }
