@@ -1,13 +1,10 @@
 function bubbleSort(array) {
 
 for (let i=0;i<array.length;i++) {
-  for(let j=0;j<array.length-1;j++){
-    console.log(i,j)
-    console.log(array[j],array[j+1])
-    console.log(compare(array[j],array[j+1]))
+  for(let j=0;j<array.length;j++){
      if (compare(array[j],array[j+1])){
         swap(array,j)
-        console.log(array)
+
      }
     }
   }

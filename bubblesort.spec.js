@@ -35,11 +35,24 @@ describe('Bubble Sort', function(){
 describe('Bubble Sort', function(){
   it('handles an array of 2 elements', function(){
     expect( bubbleSort([2,3]) ).toEqual( [2,3] );
+    it('Count how many times we call swap of 2 array', function () {
+       spyOn(window,"swap").and.callThrough();
+       bubbleSort([2,3])
+      expect(window.swap.calls.count()).toEqual(0);
+    });
+
+
   });
 });
 
 describe('Bubble Sort', function(){
   it('handles an array of 5 elements', function(){
     expect( bubbleSort([5,3,6,7,4]) ).toEqual( [3,4,5,6,7] );
+    it('Count how many times we call swap of 5 array', function () {
+       spyOn(window,"swap").and.callThrough();
+       bubbleSort([5,3,6,7,4])
+      expect(window.swap.calls.count()).toEqual(9);
+    });
+
   });
 });
